@@ -4,10 +4,17 @@
     <title>
         Login Page
     </title>
+    <meta name="google-signin-client_id" content="234629810989-blihsncc7e3ptih50glsecqde57lcmse.apps.googleusercontent.com">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css" />
-    <script src="./js/script.js"></script>
+    <script src="./js/facebookLogin.js"></script>
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="./js/googleSignIn.js"></script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvCNCQo81vOXo3rlVX3P-8hyX2Not0r9w&callback=initMap"></script>
+    <script src="./js/map.js"></script>
    </head>
 
 <body onload="">
@@ -15,25 +22,44 @@
       <div class="jumbotron" id="mainheaderDiv">
         <h1>Welcome to facebook Login</h1>
       </div>
-    </header>
+  </header>
     <div class="container">
-    <form class="formclass">
-      <label> UserName </label>
-      <input type="text" placeholder="Please Enter the User Name" class="form-control" id="username" />
-      <br />
-      <label>Password </label>
-      <input type="password" placeholder= "password"  class="form-control" id="password"/>
-      <br />
-      <div class="fb-login-button" data-max-rows="1" data-size="large"
-      data-button-type="login_with" data-show-faces="false"
-      scope="public_profile,email"
-      onlogin="checkLoginState();"
-      data-auto-logout-link="true" data-use-continue-as="false"></div>
-    </form>
-  </div>
-    <footer>
+      <form class="formclass">
+        <label> UserName </label>
+        <input type="text" placeholder="Please Enter the User Name" class="form-control" id="username" />
+        <br />
+        <label>Password </label>
+        <input type="password" placeholder= "password"  class="form-control" id="password"/>
+        <br />
+        <label>Login: </label>
+        <input type="button"  id="login"  class="btn btn-primary" value="Login" />
+        <label>Log Out: </label>
+        <input type="button" id="logOut"  class="btn btn-primary" value="Log Out:" />
+        <br />
+        <br />
 
-    </footer>
+        <div class="input-group">
+          <div class="fb-login-button" data-max-rows="1" data-size="large"
+          data-button-type="login_with" data-show-faces="false"
+          scope="public_profile,email"
+          onlogin="checkLoginState();"
+          data-auto-logout-link="true" data-use-continue-as="false"></div>
+        </div>
+
+        <div class="input-group">
+          <div class="g-signin2" data-onsuccess="onSignIn"   data-longtitle="true">
+          <a href="#" onclick="signOut();">Sign out</a></div>
+        </div>
+      </form>
+    </div>
+<div>
+<h3>My Google Maps Demo</h3>
+<div id="map"></div>
+</div>
+
+<footer>
+
+</footer>
 
 </body>
 </html>
